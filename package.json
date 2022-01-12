@@ -10,6 +10,8 @@
 		"start": "craco start",
 		"build": "craco build",
 		"test": "craco test",
+		"lint:fix": "eslint src --fix && yarn format",
+		"format": "prettier -w .",
 		"tauri": "tauri",
 		"prepare": "husky install"
 	},
@@ -51,7 +53,16 @@
 		"lint-staged": "^11.0.0",
 		"postcss": "^8",
 		"prettier": "^2.3.2",
-		"pretty-quick": "^3.1.1",
+		"prettier-plugin-sort-class-names": "^3.0.1",
 		"tailwindcss": "npm:@tailwindcss/postcss7-compat"
+	},
+	"lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,}": [
+			"eslint --max-warnings=0",
+			"prettier -w"
+		],
+		"src/**/*.{json,css,scss,md}": [
+			"prettier -w"
+		]
 	}
 }
