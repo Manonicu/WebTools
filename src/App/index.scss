@@ -1,8 +1,0 @@
-.main{
-	@apply p-4 w-screen h-screen grid gap-3;
-	grid-template-columns: minmax(120px, 20%);
-	grid-template-rows: minmax(120px, 20%);
-}
-.item{
-	@apply shadow-lg rounded-md flex items-center justify-center text-white text-2xl font-extrabold;
-}
