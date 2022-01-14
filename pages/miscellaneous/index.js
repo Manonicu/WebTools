@@ -1,13 +1,15 @@
 import Image from 'next/image';
 import { HeartIcon } from '@heroicons/react/outline';
-import imageToolsConfig from '../../utils/config/image';
+import miscellaneousToolsConfig from '../../utils/config/miscellaneous';
 
 export default function ImageTools() {
 	return (
 		<div className='p-8 w-screen image-tools'>
-			<h1 className='text-center text-4xl mb-8 font-bold'>Image Tools</h1>
+			<h1 className='text-center text-4xl mb-8 font-bold'>
+				Miscellaneous Tools
+			</h1>
 			<div className='grid grid-cols-3 gap-4'>
-				{imageToolsConfig.map((item) => {
+				{miscellaneousToolsConfig.map((item) => {
 					return (
 						<div
 							className='cursor-pointer rounded-xl shadow-xl shadow-indigo-200 bg-white p-4 tool'
