@@ -1,26 +1,42 @@
+import Link from 'next/link';
+
 export default function Home() {
 	return (
-		<div className='grid grid-cols-3 gap-4 p-8 w-screen h-screen bg-gray-100 home'>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				Image Tools
+		<div className='grid grid-cols-3 gap-4 p-8 w-screen h-screen bg-indigo-50 home'>
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/image'>
+					<a>Image Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				CSS Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/'>
+					<a>CSS Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				Text Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/'>
+					<a>Text Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				Coding Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/'>
+					<a>Coding Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				Color Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/'>
+					<a>Color Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4'>
-				Social Media Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4'>
+				<Link href='/'>
+					<a>Social Media Tools</a>
+				</Link>
 			</div>
-			<div className='grid place-items-center font-medium text-xl rounded-xl drop-shadow-xl bg-white p-4 col-span-3'>
-				Miscellaneous Tools
+			<div className='grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4 col-span-3'>
+				<Link href='/'>
+					<a>Miscellaneous Tools</a>
+				</Link>
 			</div>
 		</div>
 	);
