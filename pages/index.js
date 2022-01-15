@@ -29,7 +29,7 @@ export default function Home() {
 				</Link>
 			</div>
 			<div className='home-item'>
-				<Link href='/'>
+				<Link href='/ms'>
 					<a>Social Media Tools</a>
 				</Link>
 			</div>
