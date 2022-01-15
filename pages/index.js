@@ -19,7 +19,7 @@ export default function Home() {
 				</Link>
 			</div>
 			<div className='home-item'>
-				<Link href='/'>
+				<Link href='/coding'>
 					<a>Coding Tools</a>
 				</Link>
 			</div>
