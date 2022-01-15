@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+body {
+	@apply font-sans;
+}
+
+.home {
+	@apply grid grid-cols-3 gap-4 px-8 py-12 w-screen h-screen bg-indigo-50;
+	&-item {
+		@apply grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4;
+	}
+}
+
+.tools {
+	@apply p-8 w-screen grid grid-cols-3 gap-4;
+	&-item {
+		&:not(:first-child) {
+			@apply cursor-pointer rounded-xl shadow-xl shadow-indigo-200 bg-white p-4;
+		}
+		&:first-child {
+			@apply text-center text-4xl mb-8 font-bold col-span-3;
+		}
+		&-title {
+			@apply font-bold text-gray-900 my-2.5;
+		}
+		&-description {
+			@apply text-xs text-gray-500 leading-normal;
+		}
+		&-like {
+			@apply flex justify-end mt-2.5;
+			.icon {
+				@apply w-6 h-6 text-gray-400;
+			}
+		}
+	}
+}

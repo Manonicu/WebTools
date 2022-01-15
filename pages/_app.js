@@ -1,4 +1,4 @@
-import '../styles/globals.css';
+import '../styles/globals.scss';
 import { useState } from 'react';
 import Link from 'next/link';
 import { HomeIcon } from '@heroicons/react/outline';

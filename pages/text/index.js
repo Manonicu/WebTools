@@ -1,13 +1,13 @@
 import { HeartIcon } from '@heroicons/react/outline';
-import miscellaneousToolsConfig from '../../utils/config/miscellaneous';
-import { ImgLoader } from '../../utils/customLoaders';
+import textToolsConfig from '../../utils/config/text';
 import Image from 'next/image';
+import { ImgLoader } from '../../utils/customLoaders';
 
 export default function ImageTools() {
 	return (
 		<div className='tools'>
-			<h1 className='tools-item'>Miscellaneous Tools</h1>
-			{miscellaneousToolsConfig.map((item) => {
+			<h1 className='tools-item'>Text Tools</h1>
+			{textToolsConfig.map((item) => {
 				return (
 					<div className='tools-item' key={item.title}>
 						<div className='tools-item-image'>
