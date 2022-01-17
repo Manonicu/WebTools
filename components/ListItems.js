@@ -3,18 +3,15 @@ import { ImgLoader } from '../utils/customLoaders';
 import { HeartIcon } from '@heroicons/react/outline';
 import Dialog from './Dialog';
 import { show, hide } from '../store/dialog';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import QRCodeGenerator from '../packages/miscellaneous/QRCodeGenerator';
 import { useRef } from 'react';
 
 export default function ListItem(props) {
+	const state = useSelector((state) => state.dialog);
 	const dispatch = useDispatch();
 	const qrcode = useRef(null);
 
-	const handleCancel = () => {
-		console.log('cancel');
-		dispatch(hide());
-	};
 	const handleConfirm = () => {
 		qrcode.current.download();
 	};
@@ -45,8 +42,15 @@ export default function ListItem(props) {
 					</div>
 				);
 			})}
-			<Dialog confirmEvt={handleConfirm} confirmTxt='Download QR Code'>
-				<QRCodeGenerator ref={qrcode} />
+			<Dialog
+				cancelTxt='Cancel'
+				cancelEvt={() => dispatch(hide())}
+				confirmEvt={handleConfirm}
+				confirmTxt='Download QR Code'
+			>
+				{state.data.name === 'QRCodeGenerator' && (
+					<QRCodeGenerator ref={qrcode} />
+				)}
 			</Dialog>
 		</>
 	);

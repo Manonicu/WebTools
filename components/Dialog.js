@@ -27,9 +27,11 @@ export default function Dialog(props) {
 						{props.cancelTxt}
 					</Button>
 				)}
-				<Button auto onClick={() => props.confirmEvt()}>
-					{props.confirmTxt}
-				</Button>
+				{props.confirmTxt && (
+					<Button auto onClick={() => props.confirmEvt()}>
+						{props.confirmTxt}
+					</Button>
+				)}
 			</Modal.Footer>
 		</Modal>
 	);
