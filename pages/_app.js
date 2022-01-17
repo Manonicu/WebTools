@@ -1,14 +1,13 @@
 import '../styles/globals.scss';
-import { useState } from 'react';
 import Link from 'next/link';
 import { HomeIcon } from '@heroicons/react/outline';
+import store from '../store';
+import { Provider } from 'react-redux';
 
 function MyApp({ Component, pageProps }) {
-	const { lang, setLang } = useState('en-US');
-
 	return (
-		<>
-			<Component lang={lang} {...pageProps} />
+		<Provider store={store}>
+			<Component {...pageProps} />
 			<div className='absolute right-2 top-2'>
 				<Link href='/'>
 					<a>
@@ -16,7 +15,7 @@ function MyApp({ Component, pageProps }) {
 					</a>
 				</Link>
 			</div>
-		</>
+		</Provider>
 	);
 }
 
