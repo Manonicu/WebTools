@@ -1,20 +1,11 @@
-/**
- * @ Author: ManonIcu
- * @ Create Time: 2021/4/2 10:53
- * @ Modified by: ManonIcu
- * @ Modified time: 2021/4/2 10:53
- * @ Description:
- */
-module.exports ={
-	"arrowParens": "avoid",
-	"bracketSpacing": false,
-	"jsxBracketSameLine": false,
-	"jsxSingleQuote": false,
-	"printWidth": 120,
-	"semi": true,
-	"singleQuote": false,
-	"tabWidth": 4,
-	"trailingComma": "none",
-	"requirePragma": true,
-	"useTabs": true
-}
+module.exports = {
+	arrowParens: 'always',
+	singleQuote: true,
+	jsxSingleQuote: true,
+	tabWidth: 2,
+	semi: true,
+	sortClassNamesUnknownClassesSeparator: '',
+	sortClassNamesPrefixes:
+		'xs:,sm:,md:,lg:,xl:,2xl:,dark:,motion-safe:,motion-reduce:,first:,last:,odd:,even:,visited:,checked:,group-hover:,group-focus:,focus-within:,hover:,focus:,focus-visible:,active:,disabled:',
+	sortClassNamesSortFunctions: 'clsx,classNames,cx,clsxm',
+};
