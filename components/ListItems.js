@@ -1,20 +1,11 @@
 import Image from 'next/image';
 import { ImgLoader } from '../utils/customLoaders';
 import { HeartIcon } from '@heroicons/react/outline';
-import Dialog from './Dialog';
-import { show, hide } from '../store/dialog';
-import { useDispatch, useSelector } from 'react-redux';
-import QRCodeGenerator from '../packages/miscellaneous/QRCodeGenerator';
-import { useRef } from 'react';
+import { show } from '../store/dialog';
+import { useDispatch } from 'react-redux';
 
 export default function ListItem(props) {
-	const state = useSelector((state) => state.dialog);
 	const dispatch = useDispatch();
-	const qrcode = useRef(null);
-
-	const handleConfirm = () => {
-		qrcode.current.download();
-	};
 
 	return (
 		<>
@@ -42,16 +33,6 @@ export default function ListItem(props) {
 					</div>
 				);
 			})}
-			<Dialog
-				cancelTxt='Cancel'
-				cancelEvt={() => dispatch(hide())}
-				confirmEvt={handleConfirm}
-				confirmTxt='Download QR Code'
-			>
-				{state.data.name === 'QRCodeGenerator' && (
-					<QRCodeGenerator ref={qrcode} />
-				)}
-			</Dialog>
 		</>
 	);
 }

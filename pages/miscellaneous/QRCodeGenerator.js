@@ -75,9 +75,10 @@ export default class QRCodeGenerator extends Component {
 			this.state;
 		return (
 			<>
-				<Grid.Container gap={4}>
-					<Grid md={10}>
+				<Grid.Container fluid gap={4}>
+					<Grid md={10} sm={10} xs={10}>
 						<Input
+							size='sm'
 							name='txt'
 							placeholder='URL Or Text'
 							fullWidth={true}
@@ -87,66 +88,78 @@ export default class QRCodeGenerator extends Component {
 							onChange={this.handleClick}
 						/>
 					</Grid>
-					<Grid>
+					<Grid md={2} sm={2} xs={2}>
 						<Button color='warning' auto onClick={this.reset}>
 							Reset
 						</Button>
 					</Grid>
 				</Grid.Container>
 				<Grid.Container gap={4}>
-					<Grid>
+					<Grid xs={4} sm={2} md={6}>
 						<Input
+							size='sm'
 							name='errorCorrectionLevel'
 							shadow={false}
-							labelPlaceholder='Error Correction Level'
+							labelPlaceholder='Level'
 							color='primary'
 							value={errorCorrectionLevel}
 							onChange={this.handleClick}
 						/>
 					</Grid>
-					<Grid>
+					<Grid xs={4} sm={2} md={6}>
 						<Input
+							size='sm'
 							name='quality'
 							shadow={false}
-							labelPlaceholder='quality'
+							labelPlaceholder='Quality'
 							color='primary'
 							type='number'
 							step='0.1'
 							value={quality}
+							max={1}
+							min={0.1}
+							fullWidth
 							onChange={this.handleClick}
 						/>
 					</Grid>
-					<Grid>
+					<Grid xs={4} sm={2} md={6}>
 						<Input
-							name='margin'
+							size='sm'
+							name='Margin'
 							shadow={false}
 							labelPlaceholder='margin'
 							color='primary'
 							type='number'
+							min={1}
+							fullWidth
 							value={margin}
 							onChange={this.handleClick}
 						/>
 					</Grid>
-					<Grid>
+					<Grid xs={4} sm={2} md={6}>
 						<Input
-							name='width'
+							size='sm'
+							name='Width'
 							shadow={false}
 							labelPlaceholder='width'
 							color='primary'
 							type='number'
 							step='10'
+							fullWidth
 							value={width}
 							onChange={this.handleClick}
 						/>
 					</Grid>
-					<Grid>
+					<Grid xs={4} sm={2} md={6}>
 						<Input
-							name='height'
+							size='sm'
+							name='Height'
 							shadow={false}
 							labelPlaceholder='height'
 							color='primary'
 							type='number'
 							step='10'
+							fullWidth
 							value={height}
 							onChange={this.handleClick}
 						/>
