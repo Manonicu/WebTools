@@ -1,7 +1,7 @@
 import { Checkbox, Grid, Input } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
-import Image from 'next/image';
+import Image from 'components/Image';
 const JsBarcode = require('jsbarcode');
 
 const options = [

@@ -37,7 +37,7 @@ textarea {
 }
 
 .sub-tools {
-	@apply col-span-1 border-r bg-white max-h-screen overflow-y-scroll scroll-smooth;
+	@apply col-span-1 bg-white max-h-screen overflow-y-scroll scroll-smooth;
 	&-item {
 		@apply relative flex h-12 px-8 items-center text-xs font-normal border-b cursor-pointer;
 		&::after {
@@ -54,7 +54,7 @@ textarea {
 }
 
 .tools-content {
-	@apply col-span-3 p-4;
+	@apply col-span-3 p-4 max-h-full overflow-hidden overflow-y-scroll;
 	&-description {
 		@apply font-sans text-sm;
 	}

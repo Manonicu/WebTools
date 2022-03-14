@@ -1,7 +1,7 @@
-import '../styles/globals.scss';
-import tools from '../utils/tools';
-import Image from 'next/image';
-import { useState } from 'react';
+import 'styles/globals.scss';
+import tools from 'utils/tools';
+import Image from 'components/Image';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 function MyApp({ Component, pageProps }) {
@@ -9,7 +9,11 @@ function MyApp({ Component, pageProps }) {
 	const [cur, setCur] = useState('code');
 	const [key, setKey] = useState(0);
 
-	const handleCur = (item) => {
+	useEffect(async () => {
+		await router.push(`/${cur}/${tools[cur][key].component}`);
+	}, [cur, key]);
+
+	const handleCur = async (item) => {
 		setCur(item);
 		setKey(0);
 	};
@@ -17,7 +21,6 @@ function MyApp({ Component, pageProps }) {
 	const handleKey = async (key) => {
 		if (!tools[cur][key]['draft']) {
 			setKey(key);
-			await router.push(`/${cur}/${tools[cur][key].component}`);
 		}
 	};
 
@@ -64,7 +67,6 @@ const SubTools = (props) => {
 	const cls = ({ item, key }) =>
 		props.index === key ? `${isDraft(item)} active` : isDraft(item);
 
-	console.log(props.index);
 	return (
 		<div className='sub-tools'>
 			{props.data?.map((item, key) => (
@@ -79,6 +81,7 @@ const SubTools = (props) => {
 							width={16}
 							height={16}
 							about={item.title}
+							alt={item.title}
 						/>
 						{item.title}
 					</span>
