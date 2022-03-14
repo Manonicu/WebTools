@@ -1,5 +1,6 @@
 import { Input, Grid, Button } from '@nextui-org/react';
 import qrcode from 'qrcode';
+import Image from 'next/image';
 import React, { Component } from 'react';
 
 const config = {
@@ -168,7 +169,7 @@ export default class QRCodeGenerator extends Component {
 
 				<Grid.Container gap={4} justify='center'>
 					<Grid>
-						<img
+						<Image
 							id='qrcode'
 							width={width}
 							height={height}

@@ -74,7 +74,12 @@ const SubTools = (props) => {
 					onClick={() => props.handleChange(key)}
 				>
 					<span className='flex block gap-2 items-center z-50'>
-						<Image src={item.imageUrl} width={16} height={16} />
+						<Image
+							src={item.imageUrl}
+							width={16}
+							height={16}
+							about={item.title}
+						/>
 						{item.title}
 					</span>
 				</div>

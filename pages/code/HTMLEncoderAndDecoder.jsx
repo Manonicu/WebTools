@@ -1,14 +1,16 @@
 import { useState } from 'react';
+const he = require('he');
 
-export default function Base64EncoderAndDecoder() {
+export default function HTMLEncoderAndDecoder() {
 	const [inputVal, setInputVal] = useState('');
 	const [outputVal, setOutputVal] = useState('');
 	const handleEncode = () => {
-		inputVal && setOutputVal(btoa(inputVal));
+		inputVal && setOutputVal(he.encode(inputVal));
 	};
 	const handleDecode = () => {
-		inputVal && setOutputVal(atob(inputVal));
+		inputVal && setOutputVal(he.decode(inputVal));
 	};
+
 	return (
 		<div className='w-full h-full grid grid-flow-row grid-cols-5 bg-white p-4 rounded'>
 			<div className='col-span-2 h-1/2 border rounded overflow-hidden'>

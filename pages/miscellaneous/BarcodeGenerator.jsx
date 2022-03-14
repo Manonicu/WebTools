@@ -1,6 +1,7 @@
 import { Checkbox, Grid, Input } from '@nextui-org/react';
 import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
+import Image from 'next/image';
 const JsBarcode = require('jsbarcode');
 
 const options = [
@@ -101,7 +102,8 @@ export default function BarcodeGenerator() {
 			</Grid.Container>
 			<Grid.Container gap={4} justify='center'>
 				<Grid>
-					<img
+					<Image
+						src=''
 						id='qrcode'
 						width={config.width}
 						height={config.height}

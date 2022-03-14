@@ -11,10 +11,10 @@ export default {
 		{
 			imageUrl:
 				'https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/jQvZLV.jpg',
-			draft: true,
 			title: 'HTML Encoder/Decoder',
 			description:
 				'Encode or decode your HTML by replacing special characters into equivalent escape forms',
+			component: 'HTMLEncoderAndDecoder',
 		},
 		{
 			imageUrl:
