@@ -19,10 +19,10 @@ export default {
 		{
 			imageUrl:
 				'https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/eEUi34.jpg',
-			draft: true,
 			title: 'URL Encoder/Decoder',
 			description:
 				'Encode your URL by escaping characters that may break your navigation and decode it',
+			component: 'URLEncoderAndDecoder',
 		},
 		{
 			imageUrl:
