@@ -14,10 +14,6 @@ export default function Index() {
 	const [txt, setTxt] = useState('https://manon.icu/');
 	const [url, setUrl] = useState('');
 
-	useEffect(() => {
-		generateCode();
-	}, [txt]);
-
 	const DownloadQRCode = () => {
 		const a = document.createElement('a'); //Create <a>
 		a.href = url; //Image Base64 Goes here
@@ -34,6 +30,10 @@ export default function Index() {
 	const reset = () => {
 		console.log(111);
 	};
+
+	useEffect(() => {
+		generateCode();
+	}, [txt]);
 
 	return (
 		<div className='w-full h-full bg-white p-4 rounded'>

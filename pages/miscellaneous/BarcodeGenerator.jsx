@@ -138,7 +138,7 @@ export default function BarcodeGenerator() {
 					<Checkbox
 						defaultChecked
 						isChecked={options.displayValue}
-						onChange={(e) =>
+						onChange={() =>
 							setOptions({ ...options, displayValue: !options.displayValue })
 						}
 					>
