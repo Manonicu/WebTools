@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import {
 	Input,
-	Stack,
 	Text,
-	VStack,
 	Select,
-	Grid,
 	Slider,
 	SliderTrack,
 	SliderFilledTrack,
 	SliderThumb,
 	Checkbox,
-	Center,
 	Button,
+	GridItem,
 } from '@chakra-ui/react';
 import { DownloadIcon } from '@heroicons/react/solid';
+import Layout from 'components/Layout';
 
 const JsBarcode = require('jsbarcode');
 
@@ -65,99 +63,98 @@ export default function BarcodeGenerator() {
 	}, [options]);
 
 	return (
-		<div className='w-full h-full bg-white p-4 rounded'>
-			<Grid templateColumns='70% auto' gap={12} mb={12}>
-				<VStack alignItems='start'>
-					<Text textColor='gray.500' fontSize='xs'>
-						Barcode Value
+		<Layout
+			templateColumns='repeat(3,1fr)'
+			gap={8}
+			templateRows='50px 50px auto'
+		>
+			<GridItem alignItems='start' colSpan={2}>
+				<Text textColor='gray.500' fontSize='xs'>
+					Barcode Value
+				</Text>
+				<Input
+					name='text'
+					value={options.text}
+					type='txt'
+					onChange={setInputValue}
+				/>
+			</GridItem>
+			<GridItem colSpan={1} alignItems='start'>
+				<Text textColor='gray.500' fontSize='xs'>
+					Barcode Format
+				</Text>
+				<Select name='format' value={options.format} onChange={setInputValue}>
+					{Barcodes.map(({ value, label }) => (
+						<option value={value} key={value}>
+							{label}
+						</option>
+					))}
+				</Select>
+			</GridItem>
+			<GridItem colSpan={1}>
+				<Text display='flex' gap={4} textColor='gray.500' fontSize='xs'>
+					Barcode Line Width:
+					<Text textColor='gray.800' fontWeight='700'>
+						{options.width}
 					</Text>
-					<Input
-						name='text'
-						value={options.text}
-						type='txt'
-						onChange={setInputValue}
-					/>
-				</VStack>
-				<VStack alignItems='start'>
-					<Text textColor='gray.500' fontSize='xs'>
-						Barcode Format
+				</Text>
+				<Slider
+					aria-label='width'
+					defaultValue={1}
+					min={1}
+					max={4}
+					value={options.width}
+					onChange={(v) => setSliderValue(v, 'width')}
+				>
+					<SliderTrack>
+						<SliderFilledTrack />
+					</SliderTrack>
+					<SliderThumb />
+				</Slider>
+			</GridItem>
+			<GridItem colSpan={1}>
+				<Text display='flex' gap={4} textColor='gray.500' fontSize='xs'>
+					Barcode Line Width:
+					<Text textColor='gray.800' fontWeight='700'>
+						{options.height}
 					</Text>
-					<Select name='format' value={options.format} onChange={setInputValue}>
-						{Barcodes.map(({ value, label }) => (
-							<option value={value} key={value}>
-								{label}
-							</option>
-						))}
-					</Select>
-				</VStack>
-			</Grid>
-			<Grid templateColumns='repeat(3,1fr)' gap={12}>
-				<Stack>
-					<Text display='flex' gap={4} textColor='gray.500' fontSize='xs'>
-						Barcode Line Width:
-						<Text textColor='gray.800' fontWeight='700'>
-							{options.width}
-						</Text>
-					</Text>
-					<Slider
-						aria-label='width'
-						defaultValue={1}
-						min={1}
-						max={4}
-						value={options.width}
-						onChange={(v) => setSliderValue(v, 'width')}
-					>
-						<SliderTrack>
-							<SliderFilledTrack />
-						</SliderTrack>
-						<SliderThumb />
-					</Slider>
-				</Stack>
-				<Stack>
-					<Text display='flex' gap={4} textColor='gray.500' fontSize='xs'>
-						Barcode Line Width:
-						<Text textColor='gray.800' fontWeight='700'>
-							{options.height}
-						</Text>
-					</Text>
-					<Slider
-						aria-label='height'
-						defaultValue={100}
-						min={100}
-						max={200}
-						value={options.height}
-						onChange={(v) => setSliderValue(v, 'height')}
-					>
-						<SliderTrack>
-							<SliderFilledTrack />
-						</SliderTrack>
-						<SliderThumb />
-					</Slider>
-				</Stack>
-				<Stack>
-					<Checkbox
-						defaultChecked
-						isChecked={options.displayValue}
-						onChange={() =>
-							setOptions({ ...options, displayValue: !options.displayValue })
-						}
-					>
-						Display Value
-					</Checkbox>
-				</Stack>
-			</Grid>
-			<Center h={400}>
-				<Stack>
-					<svg id='barcode'></svg>
-					<Button
-						leftIcon={<DownloadIcon />}
-						colorScheme='twitter'
-						onClick={download}
-					>
-						Download
-					</Button>
-				</Stack>
-			</Center>
-		</div>
+				</Text>
+				<Slider
+					aria-label='height'
+					defaultValue={100}
+					min={100}
+					max={200}
+					value={options.height}
+					onChange={(v) => setSliderValue(v, 'height')}
+				>
+					<SliderTrack>
+						<SliderFilledTrack />
+					</SliderTrack>
+					<SliderThumb />
+				</Slider>
+			</GridItem>
+			<GridItem colSpan={1}>
+				<Checkbox
+					defaultChecked
+					isChecked={options.displayValue}
+					onChange={() =>
+						setOptions({ ...options, displayValue: !options.displayValue })
+					}
+				>
+					Display Value
+				</Checkbox>
+			</GridItem>
+			<GridItem colSpan={3} display={'grid'} placeItems={'center'}>
+				<svg id='barcode'></svg>
+				<Button
+					mt={4}
+					leftIcon={<DownloadIcon />}
+					colorScheme='twitter'
+					onClick={download}
+				>
+					Download
+				</Button>
+			</GridItem>
+		</Layout>
 	);
 }

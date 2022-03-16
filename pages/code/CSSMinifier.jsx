@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Grid, GridItem, Textarea } from '@chakra-ui/react';
 import { minify } from 'html-minifier-terser';
 import { options } from 'utils/htmlminifier.config';
+import Layout from 'components/Layout';
 
 export default function HTMLMinifier() {
 	const [inputVal, setInputVal] = useState('');
@@ -18,14 +19,7 @@ export default function HTMLMinifier() {
 	};
 
 	return (
-		<Grid
-			templateColumns='1fr auto 1fr'
-			gap={4}
-			bgColor={'white'}
-			p={4}
-			rounded={'md'}
-			h={'calc(100% - 50px)'}
-		>
+		<Layout templateColumns='1fr auto 1fr'>
 			<GridItem h='50%'>
 				<Textarea
 					h='100%'
@@ -58,6 +52,6 @@ export default function HTMLMinifier() {
 					}}
 				/>
 			</GridItem>
-		</Grid>
+		</Layout>
 	);
 }

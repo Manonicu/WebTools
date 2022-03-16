@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button, Grid, GridItem, Textarea } from '@chakra-ui/react';
+import Layout from 'components/Layout';
 
 export default function URLEncoderAndDecoder() {
 	const [inputVal, setInputVal] = useState('');
@@ -12,14 +13,7 @@ export default function URLEncoderAndDecoder() {
 	};
 
 	return (
-		<Grid
-			templateColumns='1fr auto 1fr'
-			gap={4}
-			bgColor={'white'}
-			p={4}
-			rounded={'md'}
-			h={'calc(100% - 50px)'}
-		>
+		<Layout templateColumns='1fr auto 1fr'>
 			<GridItem h='50%'>
 				<Textarea
 					h='100%'
@@ -52,6 +46,6 @@ export default function URLEncoderAndDecoder() {
 					}}
 				/>
 			</GridItem>
-		</Grid>
+		</Layout>
 	);
 }

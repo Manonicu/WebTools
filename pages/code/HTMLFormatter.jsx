@@ -1,16 +1,21 @@
 import { useState } from 'react';
 import { Button, Grid, GridItem, Textarea } from '@chakra-ui/react';
+import { minify } from 'html-minifier-terser';
+import { options } from 'utils/htmlminifier.config';
 import Layout from 'components/Layout';
-const he = require('he');
 
-export default function HTMLEncoderAndDecoder() {
+export default function HTMLMinifier() {
 	const [inputVal, setInputVal] = useState('');
 	const [outputVal, setOutputVal] = useState('');
-	const handleEncode = () => {
-		inputVal && setOutputVal(he.encode(inputVal));
+
+	const handleEncode = async () => {
+		if (inputVal) {
+			const output = await minify(inputVal, options);
+			setOutputVal(output);
+		}
 	};
-	const handleDecode = () => {
-		inputVal && setOutputVal(he.decode(inputVal));
+	const handleReset = () => {
+		setInputVal('');
 	};
 
 	return (
@@ -29,10 +34,10 @@ export default function HTMLEncoderAndDecoder() {
 			<GridItem h='50%'>
 				<Grid h='100%' placeItems='center'>
 					<Button size='md' colorScheme='twitter' onClick={handleEncode}>
-						Encode
+						Format
 					</Button>
-					<Button size='md' colorScheme='twitter' onClick={handleDecode}>
-						Decode
+					<Button size='md' colorScheme='orange' onClick={handleReset}>
+						Reset
 					</Button>
 				</Grid>
 			</GridItem>

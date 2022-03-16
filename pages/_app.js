@@ -9,6 +9,7 @@ import {
 	GridItem,
 	Text,
 	Box,
+	Image,
 } from '@chakra-ui/react';
 // import theme from 'utils/theme';
 
@@ -148,11 +149,10 @@ const SubTools = (props) => {
 							key={item.title}
 							onClick={() => props.handleChange(key)}
 						>
-							<img
-								src={item.imageUrl}
-								width={16}
-								height={16}
-								about={item.title}
+							<Image
+								src={`https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/${item.imageUrl}`}
+								w={4}
+								h={4}
 								alt={item.title}
 							/>
 							{item.title}
