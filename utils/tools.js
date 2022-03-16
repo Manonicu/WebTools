@@ -27,10 +27,10 @@ export default {
 		{
 			imageUrl:
 				'https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/110fXE.jpg',
-			draft: true,
 			title: 'HTML Minifier',
 			description:
 				'Minify your HTML code and copy the minified code to your clipboard or download as .html file',
+			component: 'HTMLMinifier',
 		},
 		{
 			imageUrl:
