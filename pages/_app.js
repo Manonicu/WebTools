@@ -10,16 +10,16 @@ import {
 	Text,
 	Box,
 } from '@chakra-ui/react';
-import theme from 'utils/theme';
+// import theme from 'utils/theme';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
 	const [cur, setCur] = useState('code');
 	const [key, setKey] = useState(0);
 
-	useEffect(async () => {
-		await router.push(`/${cur}/${tools[cur][key].component}`);
-	}, [cur, key]);
+	useEffect(() => {
+		router.push(`/${cur}/${tools[cur][key].component}`).then(() => {});
+	}, [cur, key, router]);
 
 	const handleCur = async (item) => {
 		setCur(item);

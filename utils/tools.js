@@ -35,10 +35,10 @@ export default {
 		{
 			imageUrl:
 				'https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/LwJr2Z.jpg',
-			draft: true,
 			title: 'CSS Minifier',
 			description:
 				'Minify your CSS code and copy the minified code to your clipboard or download as style.min.css file',
+			component: 'CSSMinifier',
 		},
 		{
 			imageUrl:
