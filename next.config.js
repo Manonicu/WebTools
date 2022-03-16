@@ -4,4 +4,7 @@ module.exports = {
 		loader: 'custom',
 		domains: ['cdn.jsdelivr.net'],
 	},
+	compiler: {
+		styledComponents: true,
+	},
 };

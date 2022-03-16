@@ -1,8 +1,16 @@
 import 'styles/globals.scss';
 import tools from 'utils/tools';
-import Image from 'components/Image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import {
+	ChakraProvider,
+	Alert,
+	Grid,
+	GridItem,
+	Text,
+	Box,
+} from '@chakra-ui/react';
+import theme from 'utils/theme';
 
 function MyApp({ Component, pageProps }) {
 	const router = useRouter();
@@ -25,58 +33,121 @@ function MyApp({ Component, pageProps }) {
 	};
 
 	return (
-		<div className='container-fluid'>
-			<Tools data={tools} cur={cur} index={key} handleChange={handleCur} />
-			<SubTools
-				data={tools[cur]}
-				cur={cur}
-				index={key}
-				handleChange={handleKey}
-			/>
+		<ChakraProvider>
+			<Grid
+				h='100vh'
+				w='100vw'
+				overflow='hidden'
+				fontFamily='monospace'
+				templateColumns='repeat(5, 1fr)'
+			>
+				<Tools data={tools} cur={cur} index={key} handleChange={handleCur} />
+				<SubTools
+					data={tools[cur]}
+					cur={cur}
+					index={key}
+					handleChange={handleKey}
+				/>
 
-			<div className='tools-content'>
-				<Component {...pageProps} />
-			</div>
-		</div>
+				<GridItem
+					colSpan={3}
+					p={4}
+					h='100%'
+					overflowY={'scroll'}
+					scrollBehavior={'smooth'}
+					bgColor='gray.100'
+				>
+					<Alert
+						status='info'
+						h={'50px'}
+						display={'flex'}
+						alignItems={'center'}
+						roundedTop={'md'}
+					>
+						{tools[cur][key].description}
+					</Alert>
+					<Component {...pageProps} />
+				</GridItem>
+			</Grid>
+		</ChakraProvider>
 	);
 }
 
 const Tools = (props) => {
-	const cls = (item) =>
-		props.cur === item ? 'tools-item active' : 'tools-item';
-
 	return (
-		<div className='tools'>
-			<div className='logo'>All In One</div>
+		<GridItem
+			colSpan={1}
+			borderRight={1}
+			borderColor='gray.200'
+			borderStyle='solid'
+		>
+			<Text
+				as='h1'
+				p={8}
+				fontWeight={700}
+				fontSize='2xl'
+				dropShadow='2xl'
+				textAlign='center'
+			>
+				All In One
+			</Text>
 			{Object.keys(props.data)?.map((item) => (
-				<div
-					className={cls(item)}
+				<Box
+					display={'flex'}
+					position={'relative'}
+					px={8}
+					h={12}
+					fontSize={'sm'}
+					alignItems={'center'}
+					borderBottom={1}
+					borderStyle={'solid'}
+					borderColor={'gray.200'}
+					fontWeight={600}
+					cursor={'pointer'}
+					textTransform={'capitalize'}
 					key={item}
+					bgColor={props.cur === item ? 'twitter.400' : ''}
+					color={props.cur === item ? 'white' : ''}
 					onClick={() => props.handleChange(item)}
 				>
-					<span className='z-50'>{`${item} Tools`}</span>
-				</div>
+					{`${item} Tools`}
+				</Box>
 			))}
-		</div>
+		</GridItem>
 	);
 };
 
 const SubTools = (props) => {
-	const isDraft = (item) =>
-		item.draft ? 'sub-tools-item text-gray-300' : 'sub-tools-item';
-	const cls = ({ item, key }) =>
-		props.index === key ? `${isDraft(item)} active` : isDraft(item);
-
 	return (
-		<div className='sub-tools'>
-			{props.data?.map((item, key) => (
-				<div
-					className={cls({ item, key })}
-					key={item.title}
-					onClick={() => props.handleChange(key)}
-				>
-					<span className='flex block gap-2 items-center z-50'>
-						<Image
+		<GridItem
+			colSpan={1}
+			h='100%'
+			overflowY={'scroll'}
+			scrollBehavior={'smooth'}
+		>
+			{props.data?.map((item, key) => {
+				const colorScheme = props.index === key ? 'twitter' : 'pink';
+				console.log(colorScheme);
+				return (
+					<Box
+						display={'flex'}
+						position={'relative'}
+						px={8}
+						h={12}
+						gap={4}
+						fontSize={'xs'}
+						alignItems={'center'}
+						borderBottom={1}
+						borderStyle={'solid'}
+						borderColor={'gray.200'}
+						fontWeight={500}
+						cursor={item.draft ? 'not-allowed' : 'pointer'}
+						bgColor={props.index === key ? 'twitter.400' : ''}
+						color={props.index === key ? 'white' : ''}
+						key={item.title}
+						onClick={() => props.handleChange(key)}
+					>
+						<img
 							src={item.imageUrl}
 							width={16}
 							height={16}
@@ -84,10 +155,10 @@ const SubTools = (props) => {
 							alt={item.title}
 						/>
 						{item.title}
-					</span>
-				</div>
-			))}
-		</div>
+					</Box>
+				);
+			})}
+		</GridItem>
 	);
 };
 

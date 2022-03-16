@@ -12,10 +12,6 @@ textarea {
 	@apply outline-0;
 }
 
-.container-fluid {
-	@apply font-sans bg-gray-100 w-screen h-screen grid grid-cols-5;
-}
-
 .tools {
 	@apply col-span-1 lg:text-sm lg:leading-6 relative h-screen overflow-y-scroll bg-white border-r;
 	.logo {
@@ -50,15 +46,5 @@ textarea {
 				@apply bg-blue-500 w-full transition-all duration-500;
 			}
 		}
-	}
-}
-
-.tools-content {
-	@apply col-span-3 p-4 max-h-full overflow-hidden overflow-y-scroll;
-	&-description {
-		@apply font-sans text-sm;
-	}
-	&-main {
-		//@apply
 	}
 }

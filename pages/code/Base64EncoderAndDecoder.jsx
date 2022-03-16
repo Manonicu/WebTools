@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Grid, GridItem, Textarea, Button } from '@chakra-ui/react';
 
 export default function Base64EncoderAndDecoder() {
 	const [inputVal, setInputVal] = useState('');
@@ -10,41 +11,46 @@ export default function Base64EncoderAndDecoder() {
 		inputVal && setOutputVal(atob(inputVal));
 	};
 	return (
-		<div className='w-full h-full grid grid-flow-row grid-cols-5 bg-white p-4 rounded'>
-			<div className='col-span-2 h-1/2 border rounded overflow-hidden'>
-				<textarea
-					className='block h-full w-full p-4 resize-none'
+		<Grid
+			templateColumns='1fr auto 1fr'
+			gap={4}
+			bgColor={'white'}
+			p={4}
+			rounded={'md'}
+			h={'calc(100% - 50px)'}
+		>
+			<GridItem h='50%'>
+				<Textarea
+					h='100%'
 					value={inputVal}
 					placeholder='Input'
+					resize='none'
 					onChange={(e) => {
 						setInputVal(e.target.value);
 					}}
 				/>
-			</div>
-			<div className='flex flex-col justify-center gap-4 col-span-1 h-1/2 px-4'>
-				<button
-					className='w-full h-12 bg-blue-500 rounded text-white'
-					onClick={handleEncode}
-				>
-					Encode
-				</button>
-				<button
-					className='w-full h-12 bg-blue-500 rounded text-white'
-					onClick={handleDecode}
-				>
-					Decode
-				</button>
-			</div>
-			<div className='col-span-2 h-1/2 border rounded overflow-hidden'>
-				<textarea
-					className='block h-full w-full p-4 resize-none'
+			</GridItem>
+			<GridItem h='50%'>
+				<Grid h='100%' placeItems='center'>
+					<Button size='md' colorScheme='twitter' onClick={handleEncode}>
+						Encode
+					</Button>
+					<Button size='md' colorScheme='twitter' onClick={handleDecode}>
+						Decode
+					</Button>
+				</Grid>
+			</GridItem>
+			<GridItem h='50%'>
+				<Textarea
+					h='100%'
 					value={outputVal}
 					placeholder='Output'
+					resize='none'
 					onChange={(e) => {
 						setOutputVal(e.target.value);
 					}}
 				/>
-			</div>
-		</div>
+			</GridItem>
+		</Grid>
 	);
 }
