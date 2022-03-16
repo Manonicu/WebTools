@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
 	useEffect(() => {
 		router.push(`/${cur}/${tools[cur][key].component}`).then(() => {});
-	}, [cur, key, router]);
+	}, [cur, key]);
 
 	const handleCur = async (item) => {
 		setCur(item);
@@ -125,39 +125,40 @@ const SubTools = (props) => {
 			overflowY={'scroll'}
 			scrollBehavior={'smooth'}
 		>
-			{props.data?.map((item, key) => {
-				const colorScheme = props.index === key ? 'twitter' : 'pink';
-				console.log(colorScheme);
-				return (
-					<Box
-						display={'flex'}
-						position={'relative'}
-						px={8}
-						h={12}
-						gap={4}
-						fontSize={'xs'}
-						alignItems={'center'}
-						borderBottom={1}
-						borderStyle={'solid'}
-						borderColor={'gray.200'}
-						fontWeight={500}
-						cursor={item.draft ? 'not-allowed' : 'pointer'}
-						bgColor={props.index === key ? 'twitter.400' : ''}
-						color={props.index === key ? 'white' : ''}
-						key={item.title}
-						onClick={() => props.handleChange(key)}
-					>
-						<img
-							src={item.imageUrl}
-							width={16}
-							height={16}
-							about={item.title}
-							alt={item.title}
-						/>
-						{item.title}
-					</Box>
-				);
-			})}
+			{props.data
+				?.filter((item) => !item.draft)
+				.map((item, key) => {
+					// const colorScheme = props.index === key ? 'twitter' : 'pink';
+					return (
+						<Box
+							display={'flex'}
+							position={'relative'}
+							px={8}
+							h={12}
+							gap={4}
+							fontSize={'xs'}
+							alignItems={'center'}
+							borderBottom={1}
+							borderStyle={'solid'}
+							borderColor={'gray.200'}
+							fontWeight={500}
+							cursor={'pointer'}
+							bgColor={props.index === key ? 'twitter.400' : ''}
+							color={props.index === key ? 'white' : ''}
+							key={item.title}
+							onClick={() => props.handleChange(key)}
+						>
+							<img
+								src={item.imageUrl}
+								width={16}
+								height={16}
+								about={item.title}
+								alt={item.title}
+							/>
+							{item.title}
+						</Box>
+					);
+				})}
 		</GridItem>
 	);
 };

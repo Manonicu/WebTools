@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { Button, Grid, GridItem, Textarea } from '@chakra-ui/react';
-import { minify } from 'html-minifier-terser';
-import { options } from 'utils/htmlminifier.config';
+import { minify } from 'terser';
 
-export default function HTMLMinifier() {
+export default function JavaScriptMinifier() {
 	const [inputVal, setInputVal] = useState('');
 	const [outputVal, setOutputVal] = useState('');
 
 	const handleEncode = async () => {
 		if (inputVal) {
-			const output = await minify(inputVal, options);
-			setOutputVal(output);
+			const { code } = await minify(inputVal);
+			setOutputVal(code);
 		}
 	};
 	const handleReset = () => {
 		setInputVal('');
+		setOutputVal('');
 	};
 
 	return (

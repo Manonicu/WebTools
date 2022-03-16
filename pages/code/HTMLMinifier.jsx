@@ -40,7 +40,7 @@ export default function HTMLMinifier() {
 			<GridItem h='50%'>
 				<Grid h='100%' placeItems='center'>
 					<Button size='md' colorScheme='twitter' onClick={handleEncode}>
-						Encode
+						Minify
 					</Button>
 					<Button size='md' colorScheme='orange' onClick={handleReset}>
 						Reset

@@ -43,10 +43,10 @@ export default {
 		{
 			imageUrl:
 				'https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/CpLapY.jpg',
-			draft: true,
 			title: 'JavaScript Minifier',
 			description:
 				'Minify your JavaScript code and copy the minified code to your clipboard or download as .min.js file',
+			component: 'JavaScriptMinifier',
 		},
 		{
 			imageUrl:
