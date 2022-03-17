@@ -1,6 +1,6 @@
 import 'styles/globals.scss';
 import tools from 'utils/tools';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 import {
 	ChakraProvider,
@@ -18,18 +18,16 @@ function MyApp({ Component, pageProps }) {
 	const [cur, setCur] = useState('code');
 	const [key, setKey] = useState(0);
 
-	useEffect(() => {
-		router.push(`/${cur}/${tools[cur][key].component}`).then(() => {});
-	}, [cur, key]);
-
 	const handleCur = async (item) => {
 		setCur(item);
 		setKey(0);
+		router.push(`/${cur}/${tools[cur][key].component}`).then(() => {});
 	};
 
 	const handleKey = async (key) => {
 		if (!tools[cur][key]['draft']) {
 			setKey(key);
+			router.push(`/${cur}/${tools[cur][key].component}`).then(() => {});
 		}
 	};
 
@@ -107,7 +105,7 @@ const Tools = (props) => {
 					cursor={'pointer'}
 					textTransform={'capitalize'}
 					key={item}
-					bgColor={props.cur === item ? 'twitter.400' : ''}
+					bgColor={props.cur === item ? 'twitter.500' : ''}
 					color={props.cur === item ? 'white' : ''}
 					onClick={() => props.handleChange(item)}
 				>
@@ -144,7 +142,7 @@ const SubTools = (props) => {
 							borderColor={'gray.200'}
 							fontWeight={500}
 							cursor={'pointer'}
-							bgColor={props.index === key ? 'twitter.400' : ''}
+							bgColor={props.index === key ? 'twitter.500' : ''}
 							color={props.index === key ? 'white' : ''}
 							key={item.title}
 							onClick={() => props.handleChange(key)}

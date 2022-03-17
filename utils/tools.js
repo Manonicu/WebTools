@@ -123,17 +123,17 @@ export default {
 	color: [
 		{
 			imageUrl: 'Pw8cnO.jpg',
-			draft: true,
 			title: 'HEX to RGBA Converter',
 			description:
 				'Convert HEX color codes to RGBA equivalents and see all details of a color',
+			component: 'HEXToRGBAConverter',
 		},
 		{
 			imageUrl: 'eOY6EO.jpg',
-			draft: true,
 			title: 'RGBA to HEX Converter',
 			description:
 				'Convert RGBA color codes to alpha supported 6 or 8 digit HEX equivalents',
+			component: 'RGBAToHEXConverter',
 		},
 		{
 			imageUrl: 'JAI1mN.jpg',

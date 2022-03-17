@@ -31,17 +31,16 @@ export default function Index() {
 		a.click(); //Downloaded file
 	};
 
-	const generateCode = () => {
-		qrcode.toDataURL(txt, config, function (err, url) {
-			setUrl(url);
-		});
-	};
-
 	const reset = () => {
 		setUrl('https://manon.icu/');
 	};
 
 	useEffect(() => {
+		const generateCode = () => {
+			qrcode.toDataURL(txt, config, function (err, url) {
+				setUrl(url);
+			});
+		};
 		generateCode();
 	}, [txt]);
 
