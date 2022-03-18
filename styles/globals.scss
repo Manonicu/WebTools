@@ -6,36 +6,44 @@
 	display: none;
 }
 
-body {
-	@apply font-sans;
-}
-
-.home {
-	@apply grid grid-cols-3 gap-4 px-8 py-12 w-screen h-screen bg-indigo-50;
-	&-item {
-		@apply grid place-items-center cursor-pointer font-medium text-xl rounded-xl shadow-xl shadow-indigo-200 bg-white p-4;
-	}
+button,
+input,
+textarea {
+	@apply outline-0;
 }
 
 .tools {
-	@apply p-8 w-screen grid grid-cols-3 gap-4;
+	@apply col-span-1 lg:text-sm lg:leading-6 relative h-screen overflow-y-scroll bg-white border-r;
+	.logo {
+		@apply p-8 font-extrabold text-2xl font-mono drop-shadow-md;
+	}
 	&-item {
-		&:not(:first-child) {
-			@apply cursor-pointer rounded-xl shadow-xl shadow-indigo-200 bg-white p-4;
+		@apply relative flex px-8 h-12 items-center border-b capitalize text-sm font-semibold cursor-pointer;
+		&::after {
+			content: '';
+			@apply absolute top-0 left-0 w-2 h-full z-0 bg-transparent transition-all duration-500;
 		}
-		&:first-child {
-			@apply text-center text-4xl mb-8 font-bold col-span-3;
+		&.active {
+			@apply text-white;
+			&::after {
+				@apply bg-blue-500 w-full transition-all duration-500;
+			}
 		}
-		&-title {
-			@apply font-bold text-gray-900 my-2.5;
+	}
+}
+
+.sub-tools {
+	@apply col-span-1 bg-white max-h-screen overflow-y-scroll scroll-smooth;
+	&-item {
+		@apply relative flex h-12 px-8 items-center text-xs font-normal border-b cursor-pointer;
+		&::after {
+			content: '';
+			@apply absolute top-0 left-0 w-2 h-full z-0 bg-transparent transition-all duration-500;
 		}
-		&-description {
-			@apply text-xs text-gray-500 leading-normal;
-		}
-		&-like {
-			@apply flex justify-end mt-2.5;
-			.icon {
-				@apply w-6 h-6 text-gray-400;
+		&.active {
+			@apply text-white;
+			&::after {
+				@apply bg-blue-500 w-full transition-all duration-500;
 			}
 		}
 	}
