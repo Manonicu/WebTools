@@ -45,7 +45,6 @@ export default function BarcodeGenerator() {
 
 	const setInputValue = (e) => {
 		const { value, name } = e.target;
-		console.log(value, name);
 		setOptions({ ...options, [name]: value });
 	};
 

@@ -13,38 +13,54 @@ textarea {
 }
 
 .tools {
-	@apply col-span-1 lg:text-sm lg:leading-6 relative h-screen overflow-y-scroll bg-white border-r;
-	.logo {
-		@apply p-8 font-extrabold text-2xl font-mono drop-shadow-md;
-	}
-	&-item {
-		@apply relative flex px-8 h-12 items-center border-b capitalize text-sm font-semibold cursor-pointer;
-		&::after {
-			content: '';
-			@apply absolute top-0 left-0 w-2 h-full z-0 bg-transparent transition-all duration-500;
-		}
-		&.active {
-			@apply text-white;
-			&::after {
-				@apply bg-blue-500 w-full transition-all duration-500;
-			}
-		}
-	}
+	height: calc(100vh - 10.25rem);
 }
 
-.sub-tools {
-	@apply col-span-1 bg-white max-h-screen overflow-y-scroll scroll-smooth;
-	&-item {
-		@apply relative flex h-12 px-8 items-center text-xs font-normal border-b cursor-pointer;
-		&::after {
-			content: '';
-			@apply absolute top-0 left-0 w-2 h-full z-0 bg-transparent transition-all duration-500;
-		}
-		&.active {
-			@apply text-white;
-			&::after {
-				@apply bg-blue-500 w-full transition-all duration-500;
+.home {
+	@apply w-screen h-screen px-4;
+	&-title {
+		@apply flex items-center h-24 text-3xl font-bold;
+	}
+
+	&-tab {
+		@apply grid grid-cols-8 p-1 mb-8 h-12 bg-[#e9e9ed] rounded-[100px] text-base;
+
+		&-item {
+			@apply relative flex items-center justify-center capitalize rounded-[100px] cursor-pointer z-10;
+			&-text {
+				@apply relative z-20;
 			}
+		}
+		.home-tab-item-active {
+			@apply absolute w-full h-full bg-white rounded-[100px] top-0 left-0 z-10;
+		}
+	}
+
+	&-tools {
+		height: calc(100vh - 12rem);
+		@apply grid grid-cols-5 gap-5 overflow-y-scroll scroll-smooth;
+
+		&-item {
+			@apply relative bg-[#f4f4f6] rounded-[16px] h-0 pb-[100%];
+		}
+
+		.tool-inner {
+			@apply absolute flex flex-col w-full h-full top-0 left-0 p-4;
+		}
+
+		.tool-logo {
+			@apply mb-4 w-10 h-10 p-2 bg-white rounded-full;
+			img {
+				@apply w-6 h-6;
+			}
+		}
+
+		.tool-title {
+			@apply capitalize font-bold mb-4;
+		}
+
+		.tool-desc {
+			@apply text-xs text-gray-400;
 		}
 	}
 }
