@@ -1,6 +1,6 @@
 import qrcode from 'qrcode';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image'
+import Image from 'components/Image';
 
 const config = {
 	errorCorrectionLevel: 'H',
@@ -52,7 +52,23 @@ export default function QRCodeGenerator() {
 				</button>
 			</div>
 
-			<Image src={url} alt={txt} className='w-80 h-80 mx-auto mb-12' width={320} height={320} loading="lazy" />
+			{url ? (
+				<Image
+					src={url}
+					alt={txt}
+					className='w-80 h-80 mx-auto mb-12'
+					width={320}
+					height={320}
+				/>
+			) : (
+				<Image
+					src='/qrcode.png'
+					alt={txt}
+					className='w-80 h-80 mx-auto mb-12'
+					width={320}
+					height={320}
+				/>
+			)}
 			<button
 				className='block w-80 py-2 text-center mx-auto'
 				onClick={DownloadQRCode}

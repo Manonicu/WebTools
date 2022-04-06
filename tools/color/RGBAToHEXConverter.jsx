@@ -1,47 +1,43 @@
 import { useEffect, useState } from 'react';
-import { Button, GridItem, Input } from '@chakra-ui/react';
 import { RGBAToHexA } from 'utils/color.utils';
 
 export default function RGBAToHEXConverter() {
 	const [inputVal, setInputVal] = useState('rgba(0,0,255,0.5)');
 	const [outputVal, setOutputVal] = useState('');
 
+	const handleConverter = () => {
+		inputVal && setOutputVal(RGBAToHexA(inputVal));
+	};
+
 	useEffect(() => {
-		const handleConverter = () => {
-			inputVal && setOutputVal(RGBAToHexA(inputVal));
-		};
 		handleConverter();
 	}, [inputVal]);
 
 	return (
-		<>
-			<GridItem>
-				<Input
+		<div className='grid grid-cols-5'>
+			<div className='col-span-2'>
+				<input
+					type='textarea'
 					value={inputVal}
 					placeholder='Input'
 					onChange={(e) => {
 						setInputVal(e.target.value);
 					}}
 				/>
-			</GridItem>
-			<GridItem h='50%'>
-				<Button
-					size='md'
-					colorScheme='pink'
-					onClick={() => setOutputVal(RGBAToHexA(inputVal))}
-				>
-					Converter
-				</Button>
-			</GridItem>
-			<GridItem>
-				<Input
+			</div>
+			<div className='col-span-1'>
+				<button onClick={handleConverter}>Converter</button>
+			</div>
+			<div className='col-span-2'>
+				<input
+					type='textarea'
 					value={outputVal}
 					placeholder='Output'
 					onChange={(e) => {
 						setOutputVal(e.target.value);
 					}}
 				/>
-			</GridItem>
-		</>
+			</div>
+		</div>
 	);
 }

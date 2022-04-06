@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Button, Grid, GridItem, Textarea } from '@chakra-ui/react';
-import Layout from 'components/Layout';
 
 export default function JSONTreeViewer() {
 	const [inputVal, setInputVal] = useState('');
@@ -13,39 +11,31 @@ export default function JSONTreeViewer() {
 	};
 
 	return (
-		<>
-			<GridItem h='50%'>
-				<Textarea
-					h='100%'
+		<div className='grid grid-cols-5'>
+			<div className='col-span-2'>
+				<input
+					type='textarea'
 					value={inputVal}
 					placeholder='Input'
-					resize='none'
 					onChange={(e) => {
 						setInputVal(e.target.value);
 					}}
 				/>
-			</GridItem>
-			<GridItem h='50%'>
-				<Grid h='100%' placeItems='center'>
-					<Button size='md' colorScheme='twitter' onClick={handleEncode}>
-						Encode
-					</Button>
-					<Button size='md' colorScheme='twitter' onClick={handleDecode}>
-						Decode
-					</Button>
-				</Grid>
-			</GridItem>
-			<GridItem h='50%'>
-				<Textarea
-					h='100%'
+			</div>
+			<div className='col-span-1'>
+				<button onClick={handleEncode}>Encode</button>
+				<button onClick={handleDecode}>Decode</button>
+			</div>
+			<div className='col-span-2'>
+				<input
+					type='textarea'
 					value={outputVal}
 					placeholder='Output'
-					resize='none'
 					onChange={(e) => {
 						setOutputVal(e.target.value);
 					}}
 				/>
-			</GridItem>
-		</>
+			</div>
+		</div>
 	);
 }

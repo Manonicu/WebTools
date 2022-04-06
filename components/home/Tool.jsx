@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Image } from '@chakra-ui/react';
+import Image from 'components/Image';
 import { MdOutlineFavoriteBorder } from 'react-icons/md';
 import { setSubActiveTool, setFavorite } from 'store/toolsSlice';
 import { useDispatch } from 'react-redux';
@@ -28,6 +28,9 @@ const Tool = ({ tool }) => {
 					<Image
 						src={`https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/${imageUrl}`}
 						alt={title}
+						width={40}
+						height={40}
+						loading='lazy'
 					/>
 				</div>
 				<div className='tool-title'>{title}</div>
