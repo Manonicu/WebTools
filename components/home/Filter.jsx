@@ -1,47 +1,39 @@
-import { AnimateSharedLayout, motion } from 'framer-motion';
-import { titles } from '../../utils/tools';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { titles } from 'utils/tools';
+import { useSelector, useDispatch } from 'react-redux';
+import { filterTool } from 'store/toolsSlice';
 
-const Filter = ({ activeTool, setActiveTool, setFiltered, all }) => {
-	useEffect(() => {
-		if (activeTool === 0) {
-			setFiltered(all);
-			return false;
-		}
-		const filtered = all.filter((item) => item.group === titles[activeTool]);
-		setFiltered(filtered);
-	}, [activeTool]);
+const Filter = () => {
+	const dispatch = useDispatch();
+
+	const activeTool = useSelector((state) => state?.tools?.activeTool || 'all');
 
 	return (
-		<AnimateSharedLayout>
-			<motion.div layout className='home-tab'>
-				{titles.map((item, key) => {
-					const isActive = activeTool === key;
-					return (
-						<div
-							key={key}
-							className='home-tab-item'
-							onClick={() => setActiveTool(key)}
-						>
-							<div className='home-tab-item-text'>{item}</div>
-							{isActive && (
-								<motion.div
-									layoutId='home-tab-item-active'
-									className='home-tab-item-active'
-									initial={false}
-									animate
-									transition={{
-										type: 'spring',
-										stiffness: 500,
-										damping: 30,
-									}}
-								/>
-							)}
-						</div>
-					);
-				})}
-			</motion.div>
-		</AnimateSharedLayout>
+		<div className='home-tab'>
+			{titles.map((item) => {
+				const isActive = activeTool === item;
+				return (
+					<div
+						key={item}
+						className='home-tab-item'
+						onClick={() => dispatch(filterTool(item))}
+					>
+						<span>{item}</span>
+						{isActive && (
+							<motion.div
+								layoutId='home-tab-item-active'
+								className='home-tab-item-active'
+								transition={{
+									type: 'spring',
+									stiffness: 500,
+									damping: 30,
+								}}
+							/>
+						)}
+					</div>
+				);
+			})}
+		</div>
 	);
 };
 

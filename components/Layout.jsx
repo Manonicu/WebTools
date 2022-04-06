@@ -1,17 +1,13 @@
-import { Grid } from '@chakra-ui/react';
+import Filter from './home/Filter';
 
-export default function Layout(props) {
-	const { children, ...params } = props;
+const Layout = ({ children }) => {
+
 	return (
-		<Grid
-			gap={4}
-			bgColor={'white'}
-			p={4}
-			rounded={'md'}
-			h={'calc(100% - 50px)'}
-			{...params}
-		>
+		<div className='home'>
+			<Filter />
 			{children}
-		</Grid>
+		</div>
 	);
-}
+};
+
+export default Layout;

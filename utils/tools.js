@@ -2,27 +2,25 @@ export default [
 	{
 		imageUrl: 'NDW354.jpg',
 		group: 'code',
-		title: 'Base64 Encoder/Decoder',
+		title: 'Base64 Encoder Decoder',
 		description:
 			'Encode your strings to Base64 or decode strings encoded with Base64',
-		component: 'Base64EncoderAndDecoder',
+		component: 'Base64EncoderDecoder',
 		isLike: true,
 	},
 	{
 		imageUrl: 'jQvZLV.jpg',
 		group: 'code',
-		title: 'HTML Encoder/Decoder',
+		title: 'HTML Encoder Decoder',
 		description:
 			'Encode or decode your HTML by replacing special characters into equivalent escape forms',
-		component: 'HTMLEncoderAndDecoder',
 	},
 	{
 		imageUrl: 'eEUi34.jpg',
 		group: 'code',
-		title: 'URL Encoder/Decoder',
+		title: 'URL Encoder Decoder',
 		description:
 			'Encode your URL by escaping characters that may break your navigation and decode it',
-		component: 'URLEncoderAndDecoder',
 	},
 	{
 		imageUrl: '110fXE.jpg',
@@ -30,7 +28,6 @@ export default [
 		title: 'HTML Minifier',
 		description:
 			'Minify your HTML code and copy the minified code to your clipboard or download as .html file',
-		component: 'HTMLMinifier',
 	},
 	{
 		imageUrl: 'LwJr2Z.jpg',
@@ -38,7 +35,6 @@ export default [
 		title: 'CSS Minifier',
 		description:
 			'Minify your CSS code and copy the minified code to your clipboard or download as style.min.css file',
-		component: 'CSSMinifier',
 	},
 	{
 		imageUrl: 'CpLapY.jpg',
@@ -46,7 +42,6 @@ export default [
 		title: 'JavaScript Minifier',
 		description:
 			'Minify your JavaScript code and copy the minified code to your clipboard or download as .min.js file',
-		component: 'JavaScriptMinifier',
 	},
 	{
 		imageUrl: 'il8czB.jpg',
@@ -54,7 +49,6 @@ export default [
 		title: 'HTML Formatter',
 		description:
 			'Format your HTML code with HTML beautifier and either copy the formatted HTML or download it',
-		component: 'HTMLFormatter',
 	},
 	{
 		imageUrl: 'jkm4A5.jpg',
@@ -76,7 +70,7 @@ export default [
 		imageUrl: 'niobu6.jpg',
 		group: 'code',
 		draft: true,
-		title: 'MD5 Encrypt/Decrypt',
+		title: 'MD5 Encrypt Decrypt',
 		description:
 			'Encrypt strings to MD5 hashes or decrypt MD5 hashes to strings by iterating combinations',
 	},
@@ -84,7 +78,7 @@ export default [
 		imageUrl: '2nh5Os.jpg',
 		group: 'code',
 		draft: true,
-		title: 'SHA1 Encrypt/Decrypt',
+		title: 'SHA1 Encrypt Decrypt',
 		description:
 			'Encrypt strings to SHA1 hashes or decrypt SHA1 hashes to strings by iterating combinations',
 	},
@@ -92,7 +86,7 @@ export default [
 		imageUrl: 'oGwswv.jpg',
 		group: 'code',
 		draft: true,
-		title: 'SHA224 Encrypt/Decrypt',
+		title: 'SHA224 Encrypt Decrypt',
 		description:
 			'Encrypt strings to SHA224 hashes or decrypt SHA224 hashes to strings by iterating combinations',
 	},
@@ -100,7 +94,7 @@ export default [
 		imageUrl: 'jgcXTk.jpg',
 		group: 'code',
 		draft: true,
-		title: 'SHA256 Encrypt/Decrypt',
+		title: 'SHA256 Encrypt Decrypt',
 		description:
 			'Encrypt strings to SHA256 hashes or decrypt SHA256 hashes to strings by iterating combinations',
 	},
@@ -108,7 +102,7 @@ export default [
 		imageUrl: 'o29tVI.jpg',
 		group: 'code',
 		draft: true,
-		title: 'SHA384 Encrypt/Decrypt',
+		title: 'SHA384 Encrypt Decrypt',
 		description:
 			'Encrypt strings to SHA384 hashes or decrypt SHA384 hashes to strings by iterating combinations',
 	},
@@ -116,15 +110,16 @@ export default [
 		imageUrl: '4dfoMV.jpg',
 		group: 'code',
 		draft: true,
-		title: 'SHA512 Encrypt/Decrypt',
+		title: 'SHA512 Encrypt Decrypt',
 		description:
 			'Encrypt strings to SHA512 hashes or decrypt SHA512 hashes to strings by iterating combinations',
+		component: "SHA512EncryptAndDecrypt"
 	},
 	{
 		imageUrl: 'SiHBC1.jpg',
 		group: 'code',
 		draft: true,
-		title: 'JWT Encoder/Decoder',
+		title: 'JWT Encoder Decoder',
 		description:
 			'Encode, decode, verify or debug JWT (JSON Web Token) for HSxxx, RSxxx & ESxxx algorithms',
 	},
@@ -142,7 +137,6 @@ export default [
 		title: 'HEX to RGBA Converter',
 		description:
 			'Convert HEX color codes to RGBA equivalents and see all details of a color',
-		component: 'HEXToRGBAConverter',
 	},
 	{
 		imageUrl: 'eOY6EO.jpg',
@@ -150,7 +144,6 @@ export default [
 		title: 'RGBA to HEX Converter',
 		description:
 			'Convert RGBA color codes to alpha supported 6 or 8 digit HEX equivalents',
-		component: 'RGBAToHEXConverter',
 	},
 	{
 		imageUrl: 'JAI1mN.jpg',
@@ -260,7 +253,7 @@ export default [
 		imageUrl: 'UWNrsn.jpg',
 		group: 'image',
 		draft: true,
-		title: 'Average Color Finder',
+		title: 'Image Average Color Finder',
 		description:
 			'Calculate average and dominant color of an image by ignoring transparency',
 	},
@@ -268,7 +261,7 @@ export default [
 		imageUrl: 'wmc7P9.jpg',
 		group: 'image',
 		draft: true,
-		title: 'Color Extractor',
+		title: 'Image Color Extractor',
 		description:
 			'Extract all colors from an image and get color codes and details of this colors as a list',
 	},
@@ -276,7 +269,7 @@ export default [
 		imageUrl: '6xqYiK.jpg',
 		group: 'image',
 		draft: true,
-		title: 'Color Picker',
+		title: 'Image Color Picker',
 		description:
 			'Pick any color from an image with an eyedropper and get detailed info about the color you picked',
 	},
@@ -319,7 +312,6 @@ export default [
 		title: 'QR Code Generator',
 		description:
 			'Generate QR code for your links or texts easily and download them as an image file',
-		component: 'QRCodeGenerator',
 	},
 	{
 		name: 'BarcodeGenerator',
@@ -328,7 +320,6 @@ export default [
 		title: 'Barcode Generator',
 		description:
 			'Generate barcodes for different internatinal standardizations with desired sizes',
-		component: 'BarcodeGenerator',
 	},
 	{
 		imageUrl: 'w4DvjI.jpg',
