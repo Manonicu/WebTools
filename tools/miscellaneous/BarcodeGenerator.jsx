@@ -120,7 +120,7 @@ export default function BarcodeGenerator() {
 			</div>
 			<svg id='barcode' className='w-80 h-80 mx-auto mb-12' />
 			<button
-				className='block w-80 py-2 text-center mx-auto'
+				className='w-80 py-2 text-center mx-auto'
 				onClick={download}
 			>
 				Download

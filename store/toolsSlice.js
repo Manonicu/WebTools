@@ -1,10 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import tools from 'utils/tools';
 
 const initialState = {
 	activeTool: 'all',
 	subActiveTool: null,
-	filterTools: tools,
+	filterTools: [],
 };
 
 export const toolsSlice = createSlice({
@@ -12,6 +11,8 @@ export const toolsSlice = createSlice({
 	initialState,
 	reducers: {
 		filterTool: (state, action) => {
+			const tools = JSON.parse(localStorage.getItem('tools'));
+			console.log(tools);
 			state.activeTool = action.payload;
 			state.subActiveTool = null;
 			state.filterTools =
@@ -25,7 +26,19 @@ export const toolsSlice = createSlice({
 		},
 		setFavorite: (state, action) => {
 			console.log(state, action);
+			const tools = JSON.parse(localStorage.getItem('tools'));
+			const updateTools = tools.map((item) => {
+				if (item.title === action.payload.title) {
+					return {
+						...item,
+						isLike: !item.isLike,
+					};
+				}
+				return item;
+			});
+			localStorage.setItem('tools', JSON.stringify(updateTools));
 
+			filterTool(state.activeTool);
 		},
 	},
 });

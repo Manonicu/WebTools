@@ -10,7 +10,7 @@ export default function Base64EncoderDecoder() {
 		inputVal && setOutputVal(atob(inputVal));
 	};
 	return (
-		<div className='grid grid-cols-5'>
+		<div className='grid grid-cols-5 gap-5'>
 			<div className='col-span-2'>
 				<input
 					type='textarea'
@@ -21,9 +21,9 @@ export default function Base64EncoderDecoder() {
 					}}
 				/>
 			</div>
-			<div className='col-span-1'>
-				<button onClick={handleEncode}>Encode</button>
-				<button onClick={handleDecode}>Decode</button>
+			<div className='flex flex-col justify-center gap-5 col-span-1'>
+				<button className='py-2 text-center w-full' onClick={handleEncode}>Encode</button>
+				<button className='py-2 text-center w-full' onClick={handleDecode}>Decode</button>
 			</div>
 			<div className='col-span-2'>
 				<input
