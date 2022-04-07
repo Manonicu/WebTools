@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
 	activeTool: 'all',
 	subActiveTool: null,
+	description: null,
 	filterTools: [],
 };
 
@@ -12,7 +13,6 @@ export const toolsSlice = createSlice({
 	reducers: {
 		filterTool: (state, action) => {
 			const tools = JSON.parse(localStorage.getItem('tools'));
-			console.log(tools);
 			state.activeTool = action.payload;
 			state.subActiveTool = null;
 			state.filterTools =
@@ -23,6 +23,9 @@ export const toolsSlice = createSlice({
 		setSubActiveTool: (state, action) => {
 			state.activeTool = action?.payload?.group;
 			state.subActiveTool = action?.payload?.title;
+			state.description = JSON.parse(localStorage.getItem('tools')).find(
+				(item) => item.title === action?.payload?.title
+			)?.description;
 		},
 		setFavorite: (state, action) => {
 			console.log(state, action);

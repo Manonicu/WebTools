@@ -7,11 +7,15 @@ import { useDispatch } from 'react-redux';
 const Tool = ({ tool }) => {
 	const dispatch = useDispatch();
 
-	const { imageUrl, title, description, isLike, group } = tool;
+	const { imageUrl, title, description, isLike, group, draft } = tool;
+
+	const handleClick = (tool) => {
+		!draft && dispatch(setSubActiveTool(tool));
+	};
 
 	return (
 		<motion.div
-			className='home-tools-item'
+			className={`home-tools-item ${draft && 'cursor-not-allowed grayscale'}`}
 			whileHover={{
 				position: 'relative',
 				zIndex: 1,
@@ -23,7 +27,7 @@ const Tool = ({ tool }) => {
 				},
 			}}
 		>
-			<div onClick={() => dispatch(setSubActiveTool({ group, title }))}>
+			<div onClick={() => handleClick(tool)}>
 				<div className='tool-logo'>
 					<Image
 						src={`https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/${imageUrl}`}

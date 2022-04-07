@@ -1,4 +1,4 @@
-export default [
+export const tools = [
 	{
 		imageUrl: 'NDW354.jpg',
 		group: 'code',
@@ -134,14 +134,14 @@ export default [
 	{
 		imageUrl: 'Pw8cnO.jpg',
 		group: 'color',
-		title: 'HEX to RGBA Converter',
+		title: 'HEX To RGBA Converter',
 		description:
 			'Convert HEX color codes to RGBA equivalents and see all details of a color',
 	},
 	{
 		imageUrl: 'eOY6EO.jpg',
 		group: 'color',
-		title: 'RGBA to HEX Converter',
+		title: 'RGBA To HEX Converter',
 		description:
 			'Convert RGBA color codes to alpha supported 6 or 8 digit HEX equivalents',
 	},

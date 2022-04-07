@@ -4,7 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import { store } from 'store';
 import { Provider } from 'react-redux';
 import Layout from 'components/Layout';
-import tools from 'utils/tools'
+import { tools } from 'utils/tools'
 
 function MyApp({ Component, pageProps, router }) {
 

@@ -6,7 +6,7 @@ const List = () => {
 
 	return (
 		<div className='home-tools'>
-			{filtered.map((item, key) => {
+			{filtered?.map((item, key) => {
 				return <Tool key={key} idx={key} tool={item} />;
 			})}
 		</div>
