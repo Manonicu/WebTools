@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { RGBAToHexA } from 'utils/color.utils';
+import Textarea from 'components/Textarea';
 
 export default function RGBAToHEXConverter() {
 	const [inputVal, setInputVal] = useState('rgba(0,0,255,0.5)');
@@ -16,14 +17,7 @@ export default function RGBAToHEXConverter() {
 	return (
 		<div className='grid grid-cols-5 gap-5'>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
-					value={inputVal}
-					placeholder='Input'
-					onChange={(e) => {
-						setInputVal(e.target.value);
-					}}
-				/>
+				<Textarea label='Input' value={inputVal} handleChange={setInputVal} />
 			</div>
 			<div className='flex flex-col justify-center gap-5 col-span-1'>
 				<button className='py-2 text-center w-full' onClick={handleConverter}>
@@ -31,13 +25,10 @@ export default function RGBAToHEXConverter() {
 				</button>
 			</div>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
+				<Textarea
+					label='Output'
 					value={outputVal}
-					placeholder='Output'
-					onChange={(e) => {
-						setOutputVal(e.target.value);
-					}}
+					handleChange={setOutputVal}
 				/>
 			</div>
 		</div>

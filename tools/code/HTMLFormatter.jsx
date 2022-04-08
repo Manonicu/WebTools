@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { minify } from 'html-minifier-terser';
 import { options } from 'utils/htmlminifier.config';
+import Textarea from 'components/Textarea';
 
 export default function HTMLFormatter() {
 	const [inputVal, setInputVal] = useState('');
@@ -19,14 +20,7 @@ export default function HTMLFormatter() {
 	return (
 		<div className='grid grid-cols-5'>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
-					value={inputVal}
-					placeholder='Input'
-					onChange={(e) => {
-						setInputVal(e.target.value);
-					}}
-				/>
+				<Textarea label='Input' value={inputVal} handleChange={setInputVal} />
 			</div>
 			<div className='flex flex-col justify-center gap-5 col-span-1'>
 				<button className='py-2 text-center w-full' onClick={handleFormat}>
@@ -37,13 +31,10 @@ export default function HTMLFormatter() {
 				</button>
 			</div>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
+				<Textarea
+					label='Output'
 					value={outputVal}
-					placeholder='Output'
-					onChange={(e) => {
-						setOutputVal(e.target.value);
-					}}
+					handleChange={setOutputVal}
 				/>
 			</div>
 		</div>

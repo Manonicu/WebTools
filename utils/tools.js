@@ -400,15 +400,7 @@ export const tools = [
 		title: 'Multiple Whitespace Remover',
 		description:
 			'Remove multiple whitespaces and linebreaks in a text and clear unwanted characters',
-	},
-	{
-		imageUrl: 'zsPjN7.jpg',
-		group: 'text',
-		draft: true,
-		title: 'Google Fonts Pair Finder',
-		description:
-			'Find font pairs which looks cool together on your designs, pages or apps as heading and body font ',
-	},
+	}
 ];
 
 export const titles = [

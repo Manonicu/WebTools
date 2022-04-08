@@ -16,7 +16,6 @@ export default function Home() {
 
 	if (activeTool !== 'all' && subActiveTool) {
 		const subTool = subActiveTool.split(' ').join('');
-		console.log(activeTool,subTool)
 		LazyComponent = ToolsComponent[activeTool][subTool];
 	}
 	// https://cdn.jsdelivr.net/gh/manonicu/pics@master/uPic/tools.json
@@ -29,12 +28,13 @@ export default function Home() {
 		<>
 			{activeTool !== 'all' && subActiveTool ? (
 				<div className='tool-header'>
-					<hgroup className='text-base mb-4'>
-						<h1 className='capitalize'>{`${activeTool} - ${subActiveTool}`}</h1>
-						<p className='text-sm text-gray-500'>{description}</p>
-					</hgroup>
+					<h1 className='text-2xl mb-6 font-semibold'>{subActiveTool}</h1>
 
 					<LazyComponent />
+
+					<div className='description mt-6 px-4 py-8 border-l-2 bg-gray-50 rounded'>
+						{description}
+					</div>
 				</div>
 			) : (
 				<List />

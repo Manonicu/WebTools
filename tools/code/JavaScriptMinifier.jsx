@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { minify } from 'terser';
+import Textarea from 'components/Textarea';
 
 export default function JavaScriptMinifier() {
 	const [inputVal, setInputVal] = useState('');
@@ -19,27 +20,21 @@ export default function JavaScriptMinifier() {
 	return (
 		<div className='grid grid-cols-5 gap-5'>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
-					value={inputVal}
-					placeholder='Input'
-					onChange={(e) => {
-						setInputVal(e.target.value);
-					}}
-				/>
+				<Textarea label='Input' value={inputVal} handleChange={setInputVal} />
 			</div>
 			<div className='flex flex-col justify-center gap-5 col-span-1'>
-				<button className='py-2 text-center w-full' onClick={handleMinify}>Minify</button>
-				<button className='py-2 text-center w-full' onClick={handleReset}>Reset</button>
+				<button className='py-2 text-center w-full' onClick={handleMinify}>
+					Minify
+				</button>
+				<button className='py-2 text-center w-full' onClick={handleReset}>
+					Reset
+				</button>
 			</div>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
+				<Textarea
+					label='Output'
 					value={outputVal}
-					placeholder='Output'
-					onChange={(e) => {
-						setOutputVal(e.target.value);
-					}}
+					handleChange={setOutputVal}
 				/>
 			</div>
 		</div>

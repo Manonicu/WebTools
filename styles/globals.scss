@@ -63,16 +63,12 @@ textarea {
 }
 
 input[type='text'],
-select {
+select{
 	@apply border rounded px-4 py-2 w-full;
 }
 
 input[type='range']{
 	@apply w-full;
-}
-
-input[type="textarea"]{
-	@apply w-full h-56 border rounded px-4 py-2;
 }
 
 button {

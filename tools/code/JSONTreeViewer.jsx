@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Textarea from 'components/Textarea';
 
 export default function JSONTreeViewer() {
 	const [inputVal, setInputVal] = useState('');
@@ -13,27 +14,17 @@ export default function JSONTreeViewer() {
 	return (
 		<div className='grid grid-cols-5'>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
-					value={inputVal}
-					placeholder='Input'
-					onChange={(e) => {
-						setInputVal(e.target.value);
-					}}
-				/>
+				<Textarea label='Input' value={inputVal} handleChange={setInputVal} />
 			</div>
 			<div className='col-span-1'>
 				<button onClick={handleEncode}>Encode</button>
 				<button onClick={handleDecode}>Decode</button>
 			</div>
 			<div className='col-span-2'>
-				<input
-					type='textarea'
+				<Textarea
+					label='Output'
 					value={outputVal}
-					placeholder='Output'
-					onChange={(e) => {
-						setOutputVal(e.target.value);
-					}}
+					handleChange={setOutputVal}
 				/>
 			</div>
 		</div>

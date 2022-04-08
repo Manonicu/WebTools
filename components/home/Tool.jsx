@@ -18,13 +18,7 @@ const Tool = ({ tool }) => {
 			className={`home-tools-item ${draft && 'cursor-not-allowed grayscale'}`}
 			whileHover={{
 				position: 'relative',
-				zIndex: 1,
-				scale: 1.05,
-				transition: {
-					type: 'spring',
-					stiffness: 500,
-					damping: 30,
-				},
+				translateY: '-5%',
 			}}
 		>
 			<div onClick={() => handleClick(tool)}>
