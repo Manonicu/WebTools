@@ -53,7 +53,6 @@ export const tools = [
 	{
 		imageUrl: 'jkm4A5.jpg',
 		group: 'code',
-		draft: true,
 		title: 'CSS Formatter',
 		description:
 			'Format your CSS code and copy the beautified code to your clipboard or download as style.css file',

@@ -29,12 +29,10 @@ export default function Home() {
 			{activeTool !== 'all' && subActiveTool ? (
 				<div className='tool-header'>
 					<h1 className='text-2xl mb-6 font-semibold'>{subActiveTool}</h1>
-
-					<LazyComponent />
-
-					<div className='description mt-6 px-4 py-8 border-l-2 bg-gray-50 rounded'>
+					<div className='description mb-6 px-4 py-8 border-l-2 border-l-[#e9e9ed] bg-[#e9e9ed] rounded'>
 						{description}
 					</div>
+					<LazyComponent />
 				</div>
 			) : (
 				<List />

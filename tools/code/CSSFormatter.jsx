@@ -18,13 +18,13 @@ export default function CSSFormatter() {
 	};
 
 	return (
-		<div className='grid grid-cols-5'>
+		<div className='grid grid-cols-5 gap-5'>
 			<div className='col-span-2'>
 				<Textarea label='Input' value={inputVal} handleChange={setInputVal} />
 			</div>
-			<div className='col-span-1'>
-				<button onClick={handleEncode}>Minify</button>
-				<button onClick={handleReset}>Reset</button>
+			<div className='flex flex-col justify-center gap-5 col-span-1'>
+				<button className="py-2 text-center w-full" onClick={handleEncode}>Minify</button>
+				<button className="py-2 text-center w-full" onClick={handleReset}>Reset</button>
 			</div>
 			<div className='col-span-2'>
 				<Textarea
